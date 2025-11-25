@@ -70,7 +70,35 @@ body.dark-mode {
   cursor: pointer;
 }
 
+body.light-mode {
+  background-color: var(--watchdog-white);
+  color: var(--truth-text);
+}
+
+body.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--watchdog-white);
+}
+
+#theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--watchdog-white);
+  border: 1px solid var(--blue-bulletin);
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1000;
+  transition: var(--transition);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /* ///ADD/// Skip Link Styles */
+
 
 /* ///ADD/// Navigation Styles */
 
