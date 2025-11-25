@@ -33,11 +33,11 @@ body {
     line-height: 1.6;
     transition: background-color 0.3s, color 0.3s;
 }
-/*
+
 h1, h2, h3 {
     font-family: var(--font-heading);
     margin-bottom: 1rem;
-}*/
+}
 h1 {
   font-family: var(--font-heading);
   font-variation-settings: "wdth" 100, "wght" 700;
@@ -203,9 +203,12 @@ header {
 .feature-card {
     border: 1px solid var(--story-subtitle);
     padding: 1.5rem;
-    background: rgba(69, 123, 157, 0.1);
+    background: transparent;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
 }
+
+
+   
 
 .articles-grid {
     display: grid;
@@ -362,8 +365,9 @@ footer {
   }
   
   .feature-card {
-      border-color: #666;
-      background: #444;
+      border-color: var(--story-subtitle);
+      background: transparent;
+      ;
   }
 }
 
