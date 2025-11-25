@@ -1,41 +1,13 @@
 /* CSS by Sunil Gurung */
 
 /* Imported Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wdth,wght@0,18..144,87..112,300..900;1,18..144,87..112,300..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300..900;1,300..900&family=Source+Sans+3:wght@200..900&display=swap');
 
 /* ///ADD/// CSS Reset */
 *, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  font-size: 16px;
-  scroll-behavior: smooth;
-}
-
-body {
-  line-height: 1.6;
-
-}
-
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-ul {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 /* Root Variables */
@@ -45,13 +17,373 @@ a {
   --watchdog-white: #F1FAEE;
   --truth-text: #333;
   --story-subtitle: #457B9D;
+  --bg-color: var(--watchdog-white);
+  --text-color: var(--truth-text);
   --font-body: "Source Sans 3", sans-serif;
   --font-heading: 'Merriweather', serif;
   --shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-  --transition: all 0.5s ease;
+  --transition: all 0.3s ease;
 }
 
-/* Manual Light/Dark Mode Styles*/
+/* Global Layout Styles */
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+/*
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+}*/
+h1 {
+  font-family: var(--font-heading);
+  font-variation-settings: "wdth" 100, "wght" 700;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  color: var(--watchdog-white);
+  margin-bottom: 0.25rem;
+}
+h2 {
+  font-family: var(--font-heading);
+  font-variation-settings: "wdth" 95, "wght" 600;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  font-family: var(--font-heading);
+  font-variation-settings: "wdth" 92, "wght" 600;
+  font-size: clamp(1.125rem, 3vw, 1.375rem);
+  margin-bottom: 0.75rem;
+}
+p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  font-variation-settings: "wght" 400;
+}
+
+.intro blockquote {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-variation-settings: "wdth" 90, "wght" 700;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  text-align: center;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+section {
+    padding: 2rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ///ADD/// Skip Link Styles */
+.skip-link {
+    position: absolute;
+    top: -9999px;
+    left: 0;
+    background: var(--news-flash);
+    color: white;
+    padding: 1rem;
+    z-index: 1000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Header & Navigation Styles */
+header {
+    background-color: var(--blue-bulletin);
+    color: white;
+    padding: 1rem;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tagline {
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: white; /* Ensures SVG is visible on blue background */
+    padding: 0.5rem;
+}
+
+/* Mobile Navigation */
+#menu-toggle {
+    display: none; /* Hide checkbox */
+}
+
+.menu-button {
+    display: block;
+    background-color: var(--news-flash);
+    color: white;
+    text-align: center;
+    padding: 0.75rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.menu {
+    list-style: none;
+    display: none; /* Hidden by default on mobile */
+    background-color: #f1f1f1;
+}
+
+.menu li a {
+    display: block;
+    padding: 1rem;
+    color: var(--blue-bulletin);
+    text-decoration: none;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+
+/* Show menu when checkbox is checked */
+#menu-toggle:checked ~ .menu {
+    display: block;
+}
+
+/* Component Styles */
+.quote {
+    font-family: var(--font-heading);
+    font-style: italic;
+    text-align: center;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    font-size: 1.2rem;
+}
+
+/* Breaking News Cards */
+.breaking-card {
+    background: var(--news-flash);
+    color: white;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.breaking-card h3 {
+    border-bottom: 1px solid white;
+    padding-bottom: 0.5rem;
+}
+
+.video-placeholder {
+    background: black;
+    height: 200px;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+/* Featured Articles */
+.feature-card {
+    border: 1px solid var(--story-subtitle);
+    padding: 1.5rem;
+    background: rgba(69, 123, 157, 0.1);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.articles-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+/* Subscribe Form */
+.subscribe-section {
+    background-color: var(--news-flash); /* Red background per mockup */
+    color: white;
+    padding: 2rem;
+}
+
+.subscribe-form {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border: 1px solid white;
+    margin-top: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+}
+
+fieldset {
+    border: 1px solid white;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+legend {
+    padding: 0 0.5rem;
+    font-weight: bold;
+}
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--blue-bulletin);
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--blue-bulletin);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+}
+
+.social-btn {
+    background: var(--news-flash);
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* ///ADD/// medium styles 620px */
+@media (min-width: 620px) {
+    .menu-button { display: none; }
+    
+    .menu {
+        display: flex;
+        justify-content: flex-end;
+        background: transparent;
+    }
+
+    .menu li a {
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+    }
+    
+    .menu li a:hover {
+        background-color: var(--news-flash);
+    }
+
+    .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .form-row {
+        display: flex;
+        gap: 1rem;
+    }
+    
+    .form-group {
+        flex: 1;
+    }
+}
+
+/* ///ADD/// large styles 920px */
+@media (min-width: 920px) {
+    .articles-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .news-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    
+    .checkbox-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ///ADD/// x-large styles 1024px */
+@media (min-width: 1024px) {
+    section {
+        padding: 3rem 0;
+    }
+}
+
+/* ///ADD/// Interaction Queries for color scheme light and dark and motion preference */
+
+/* System Dark Mode Preference */
+@media (prefers-color-scheme: dark) {
+  :root {
+      --bg-color: var(--truth-text);
+      --text-color: var(--watchdog-white);
+  }
+  
+  .feature-card {
+      border-color: #666;
+      background: #444;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Manual Light/Dark Mode Styles (Overrides System Prefs) */
 body.light-mode {
   background-color: var(--watchdog-white);
   color: var(--truth-text);
@@ -60,91 +392,11 @@ body.dark-mode {
   background-color: var(--truth-text);
   color: var(--watchdog-white);
 }
-#theme-toggle {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background-color: var(--watchdog-white);
-  border: 1px solid var(--blue-bulletin);
-  border-radius: 1.5rem;
-  cursor: pointer;
-}
-
-body.light-mode {
-  background-color: var(--watchdog-white);
-  color: var(--truth-text);
-}
-
-body.dark-mode {
-  background-color: var(--dark-bg);
-  color: var(--watchdog-white);
-}
-
-#theme-toggle {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  background-color: var(--watchdog-white);
-  border: 1px solid var(--blue-bulletin);
-  border-radius: 50%;
-  cursor: pointer;
-  padding: 0.5rem;
-  z-index: 1000;
-  transition: var(--transition);
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#theme-toggle:hover {
-  transform: scale(1.1);
-  box-shadow: var(--shadow);
-}
-
-#theme-toggle:focus {
-  outline: 3px solid var(--news-flash);
-  outline-offset: 2px;
-}
-
-
-/* ///ADD/// Skip Link Styles */
-.skip-link {
-  position: absolute;
-  top: -10000px;
-  left: 0;
-  background-color: var(--news-flash);
-  color: var(--watchdog-white);
-  padding: 1rem 2rem;
-  font-family: var(--font-body);
-  font-weight: bold;
-  text-decoration: none;
-  z-index: 1000;
-  transition: top 0.3s ease;
-  text-decoration: none;
-}
-
-/* ///ADD/// Navigation Styles */
-
-/* ///ADD/// Global Layout Styles */
-
-/* ///ADD/// Global Text Styles */
-
-
-/* ///ADD/// medium styles 620px */
-
-
-/* ///ADD/// large styles 920px */
-
-
-/* ///ADD/// x-large styles 1024px */
-
-
-/* ///ADD/// Interaction Queries for color scheme light and dark and motion preference */
-
 
 /* ///ADD///  Feature Query for :has() that checks if the #menu-toggle is checked */
 @supports (selector(:has(*))) {
-
+    /* If menu is open, prevent body scrolling (Mobile UX improvement) */
+    body:has(#menu-toggle:checked) {
+        overflow: hidden;
+    }
 }
