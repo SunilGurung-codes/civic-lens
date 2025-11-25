@@ -126,13 +126,13 @@ header {
     background: transparent;
     border: none;
     cursor: pointer;
-    color: white; /* Ensures SVG is visible on blue background */
+    color: white; 
     padding: 0.5rem;
 }
 
 /* Mobile Navigation */
 #menu-toggle {
-    display: none; /* Hide checkbox */
+    display: none; 
 }
 
 .menu-button {
@@ -147,8 +147,9 @@ header {
 
 .menu {
     list-style: none;
-    display: none; /* Hidden by default on mobile */
+    display: none; 
     background-color: #f1f1f1;
+    
 }
 
 .menu li a {
