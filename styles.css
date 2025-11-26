@@ -364,8 +364,8 @@ blockquote {
   font-size: 0.9rem;
 }
 
-/* Newsletter Section */
-.newsletter {
+/* Alerts Section */
+#alerts {
   background-color: var(--news-flash);
   padding: 2rem;
   border-radius: 8px;
@@ -373,12 +373,12 @@ blockquote {
   margin-bottom: 3rem;
 }
 
-.newsletter h2,
-.newsletter > p {
+#alerts h2,
+#alerts > p {
   color: white;
 }
 
-.newsletter h2 {
+#alerts h2 {
   font-variation-settings: 'wght' 700;
 }
 
@@ -626,7 +626,7 @@ footer p {
     grid-template-columns: repeat(3, 1fr);
   }
   
-  .newsletter {
+  #alerts {
     padding: 3rem;
   }
   
