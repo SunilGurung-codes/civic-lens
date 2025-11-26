@@ -243,7 +243,7 @@ blockquote {
   border-radius: 4px;
 }
 
-/* THIS IS THE FIX - Show menu when checkbox is checked */
+
 #menu-toggle:checked ~ .menu {
   display: flex;
 }
@@ -269,10 +269,10 @@ blockquote {
 
 .menu li a:hover,
 .menu li a:focus {
-  background-color: #d32f3f;
+  background-color: transparent;
   transform: translateX(5px);
-  outline: 2px solid white;
-  outline-offset: 2px;
+  outline: 2px solid var(--news-flash);
+ 
 }
 
 /* Welcome Section */
@@ -512,10 +512,9 @@ footer h2 {
 
 .social-links li a:hover,
 .social-links li a:focus {
-  background-color: #d32f3f;
-  transform: translateY(-2px);
-  outline: 2px solid white;
-  outline-offset: 2px;
+  background-color: transparent;
+  transform: translateX(5px);
+  outline: 2px solid var(--news-flash);
 }
 
 footer p {
@@ -626,7 +625,7 @@ footer p {
     grid-template-columns: repeat(3, 1fr);
   }
   
-  #alerts {
+  #alert {
     padding: 3rem;
   }
   
