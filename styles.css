@@ -1,4 +1,4 @@
-/* CSS by Sunil Gurung
+/* CSS by Sunil Gurung */
 
 /* Imported Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wdth,wght@0,18..144,87..112,300..900;1,18..144,87..112,300..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
@@ -740,10 +740,10 @@ footer p {
 }
 
 /* Feature Query for :has() that checks if the #menu-toggle is checked */
-@supports (selector(:has(a))) { 
+@supports selector(:has(*)) {
   
   #menu-toggle:checked ~ .menu-button {
-    background-color: #d32f3f;
+    background-color: var(--news-flash);
   }
   
   header:has(#menu-toggle) {
