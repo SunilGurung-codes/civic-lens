@@ -740,15 +740,12 @@ footer p {
 }
 
 /* Feature Query for :has() that checks if the #menu-toggle is checked */
-@supports (selector(:has(*))) {
-  /* Menu is always visible on this design, but we keep the feature query for rubric compliance */
-  /* This could be used for other enhancements in the future */
+@supports (selector(:has(a))) { 
   
   #menu-toggle:checked ~ .menu-button {
     background-color: #d32f3f;
   }
   
-  /* Add smooth transitions when :has() is supported */
   header:has(#menu-toggle) {
     transition: var(--transition);
   }
