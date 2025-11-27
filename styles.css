@@ -76,7 +76,7 @@ body.dark-mode #featured-articles h2 {
 
 body.dark-mode .article-card {
   background-color: transparent;
-  border-color: vvar(--story-subtitle);
+  border-color: var(--story-subtitle);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
